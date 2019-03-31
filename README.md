@@ -59,6 +59,7 @@ Script to get Let's Encrypt Wildcard SSL Certificate using DNS in ConoHa VPS.
 
 ## References
 - [Pre and Post Validation Hooks](https://certbot.eff.org/docs/using.html#pre-and-post-validation-hooks)
+- [ACME v2 Production Environment & Wildcards](https://community.letsencrypt.org/t/acme-v2-production-environment-wildcards/55578)
 - [ConoHa API Documantation](https://www.conoha.jp/docs/)
 
 ## Licence
