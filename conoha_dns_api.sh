@@ -4,7 +4,7 @@
 # VARIABLE #
 # -------- #
 SCRIPT_PATH=$(dirname $(readlink -f $0))
-source ${SCRIPT_PATH}/conoha_id
+source ${SCRIPT_PATH}/.env
 
 # -------- #
 # FUNCTION #
@@ -13,7 +13,7 @@ get_conoha_token(){
   curl -sS https://identity.tyo1.conoha.io/v2.0/tokens \
   -X POST \
   -H "Accept: application/json" \
-  -d '{ "auth": { "passwordCredentials": { "username": "'${CNH_NAME}'", "password": "'${CNH_PASS}'" }, "tenantId": "'${CNH_TENANTID}'" } }' \
+  -d '{ "auth": { "passwordCredentials": { "username": "'${CNH_USERNAME}'", "password": "'${CNH_PASSWORD}'" }, "tenantId": "'${CNH_TENANT_ID}'" } }' \
   | jq -r ".access.token.id"
 }
 

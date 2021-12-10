@@ -11,7 +11,8 @@ Script to get Let's Encrypt Wildcard SSL Certificate using DNS in ConoHa VPS.
 
 ## Setup
 - Place code in your server.
-- Set username, password and tenantId in the conoha_id
+- Copy `.env.example` to `.env`.
+- Set region, tenant id, username and password in the `.env`.
 
 ## Usage
 - Test to get Wildcard SSL Certificate.
