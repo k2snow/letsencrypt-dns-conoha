@@ -10,7 +10,7 @@ source ${SCRIPT_PATH}/.env
 # FUNCTION #
 # -------- #
 get_conoha_token(){
-  curl -sS https://identity.tyo1.conoha.io/v2.0/tokens \
+  curl -sS https://identity.${CNH_REGION}.conoha.io/v2.0/tokens \
   -X POST \
   -H "Accept: application/json" \
   -d '{ "auth": { "passwordCredentials": { "username": "'${CNH_USERNAME}'", "password": "'${CNH_PASSWORD}'" }, "tenantId": "'${CNH_TENANT_ID}'" } }' \
@@ -18,7 +18,7 @@ get_conoha_token(){
 }
 
 get_conoha_domain_id(){
-  curl -sS https://dns-service.tyo1.conoha.io/v1/domains \
+  curl -sS https://dns-service.${CNH_REGION}.conoha.io/v1/domains \
   -X GET \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
@@ -27,7 +27,7 @@ get_conoha_domain_id(){
 }
 
 create_conoha_dns_record(){
-  curl -sS https://dns-service.tyo1.conoha.io/v1/domains/${CNH_DOMAIN_ID}/records \
+  curl -sS https://dns-service.${CNH_REGION}.conoha.io/v1/domains/${CNH_DOMAIN_ID}/records \
   -X POST \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
@@ -36,7 +36,7 @@ create_conoha_dns_record(){
 }
 
 get_conoha_dns_record_id(){
-  curl -sS https://dns-service.tyo1.conoha.io/v1/domains/${CNH_DOMAIN_ID}/records \
+  curl -sS https://dns-service.${CNH_REGION}.conoha.io/v1/domains/${CNH_DOMAIN_ID}/records \
   -X GET \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
@@ -46,7 +46,7 @@ get_conoha_dns_record_id(){
 
 delete_conoha_dns_record(){
   local delete_id=$1
-  curl -sS https://dns-service.tyo1.conoha.io/v1/domains/${CNH_DOMAIN_ID}/records/${delete_id} \
+  curl -sS https://dns-service.${CNH_REGION}.conoha.io/v1/domains/${CNH_DOMAIN_ID}/records/${delete_id} \
   -X DELETE \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
