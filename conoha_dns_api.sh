@@ -23,7 +23,7 @@ get_conoha_domain_id(){
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
   -H "X-Auth-Token: ${CNH_TOKEN}" \
-  | jq -r '.domains[] | select(.name == "'${CNH_DNS_DOMAIN}'") | .id'
+  | jq -r '.domains[] | select(.name == "'${CNH_DNS_DOMAIN_ROOT}'") | .id'
 }
 
 create_conoha_dns_record(){
@@ -32,7 +32,7 @@ create_conoha_dns_record(){
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
   -H "X-Auth-Token: ${CNH_TOKEN}" \
-  -d '{ "name": "'${CNH_DNS_NAME}'", "type": "'${CNH_DNS_TYPE}'", "data": "'${CNH_DNS_DATA}'" }'
+  -d '{ "name": "'${CNH_DNS_NAME}'", "type": "'${CNH_DNS_TYPE}'", "data": "'${CNH_DNS_DATA}'", "ttl": 60 }'
 }
 
 get_conoha_dns_record_id(){
