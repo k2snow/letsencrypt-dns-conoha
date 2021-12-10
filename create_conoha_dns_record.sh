@@ -13,6 +13,7 @@ SCRIPT_PATH=$(dirname $(readlink -f $0))
 
 # ----- conoha_dns_api.sh  ----- #
 CNH_DNS_DOMAIN=${CERTBOT_DOMAIN}'.'
+CNH_DNS_DOMAIN_ROOT=`echo ${CNH_DNS_DOMAIN} | sed -r 's/^.*?\.([a-zA-Z0-9]+\.[a-zA-Z0-9]+)/\1/g'`
 CNH_DNS_NAME='_acme-challenge.'${CNH_DNS_DOMAIN}
 CNH_DNS_TYPE="TXT"
 CNH_DNS_DATA=${CERTBOT_VALIDATION}
